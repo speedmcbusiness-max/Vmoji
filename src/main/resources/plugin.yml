@@ -1,0 +1,26 @@
+name: VEmoji
+version: '${project.version}'
+main: com.vemoji.VEmoji
+api-version: '1.21.9'
+softdepend: [SkinsRestorer, PlaceholderAPI, TAB, LuckPerms, LPC, EssentialsChat, ChatControl]
+description: 'Type :end_crystal: in chat and see the real Minecraft texture.'
+authors:
+  - VEmoji
+commands:
+  vemoji:
+    description: 'VEmoji commands.'
+    usage: '/<command> [list|refresh|reload]'
+    aliases: [emoji]
+permissions:
+  vemoji.use:
+    description: 'Allows converting :name: shortcodes into textures in chat.'
+    default: true
+  vemoji.head:
+    description: 'Allows :PlayerName: to show a player head in chat.'
+    default: true
+  vemoji.flags:
+    description: 'Allows :flag_xx: country flag heads in chat.'
+    default: true
+  vemoji.admin:
+    description: 'Allows /vemoji refresh and /vemoji reload.'
+    default: op

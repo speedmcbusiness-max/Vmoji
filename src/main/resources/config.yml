@@ -1,0 +1,57 @@
+# VEmoji configuration
+config-version: 1
+
+population:
+  # AUTOMATIC downloads the Mojang client JAR once per Minecraft version and
+  # builds the sprite list from it (needs internet on first start).
+  # MANUAL expects you to place the matching client jar at
+  # plugins/VEmoji/client.jar and then run /vemoji refresh.
+  mode: AUTOMATIC
+
+# Player heads: type :PlayerName: (an online player) to show their head.
+heads:
+  enabled: true
+  # Draw the hat/overlay layer of the skin.
+  show-hat-layer: true
+  # Send the player's current skin data so restored/custom skins (SkinsRestorer,
+  # cracked servers) show correctly. Turn off to let the client look the name up.
+  use-skin-properties: true
+  # Hovering the head shows the player's name.
+  hover-name: true
+
+# Country flags: :flag_us: :flag_nepal: :flag_germany: ... (see /vemoji flags).
+# Flags are shown as custom player heads, so NO resource pack is needed.
+flags:
+  enabled: true
+  # Draw the hat/overlay layer of the head.
+  show-hat-layer: true
+
+# Where :shortcodes: are converted besides normal chat messages.
+display:
+  tab-list: true           # player names in the tab list
+  tab-header-footer: true  # tab list header and footer
+  scoreboard: true         # sidebar title, sidebar lines made with teams, nametag prefixes/suffixes
+  signs: true
+  books: true
+  join-quit: true          # join / quit messages
+  # How often (ticks) tab list and scoreboards are refreshed. Needs a restart to change.
+  update-ticks: 20
+
+# PlaceholderAPI / TAB: VEmoji adds %vemoji_...% placeholders that output the text syntax
+# TAB understands for sprites and heads. If a TAB version expects a different syntax,
+# change these templates ({atlas} {sprite} {name} {hash} are filled in).
+placeholders:
+  sprite: '<sprite:"{atlas}":"{sprite}">'
+  head-name: '<head:{name}>'
+  head-texture: '<head_texture:{hash}>'
+
+chat:
+  # Maximum number of :emoji: converted in a single chat message (stops spam).
+  max-per-message: 10
+
+# Custom shortcodes.  name -> sprite path (looked up in the sprite list)
+# or "atlas@sprite" for full control, e.g. "minecraft:blocks@minecraft:item/end_crystal".
+aliases:
+  crystal: item/end_crystal
+  gapple: item/golden_apple
+  sword: item/diamond_sword
